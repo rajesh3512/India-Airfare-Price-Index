@@ -591,16 +591,21 @@ export default function Home() {
       {searchResults.map((flight, index) => {
         const routeKey = `${flight.origin} → ${flight.destination}`;
 
-        const typical =
-          (typicalFares as Record<string, number>)[routeKey] ??
-          flight.price;
+        const currentPrice = Number(flight.price);
 
-        const priceDifference = flight.price - typical;
+        const typical = Number(
+          (typicalFares as Record<string, number>)[routeKey] ?? currentPrice
+        );
+
+        const priceDifference = currentPrice - typical;
+
         const pricePercentage =
-          typical > 0 ? Math.round((priceDifference / typical) * 100) : 0;
+          typical > 0
+            ? Math.round((priceDifference / typical) * 100)
+            : 0;
 
         const isBestValue =
-          flight.price ===
+          currentPrice ===
           Math.min(...searchResults.map((item) => Number(item.price)));
 
         return (
