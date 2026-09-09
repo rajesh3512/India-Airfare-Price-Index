@@ -1,0 +1,6 @@
+date,source,average_airfare,airfare_price_index
+2026-08-01,Prototype,3783.33,95.8
+2026-08-15,Prototype,3983.33,100.87
+2026-09-01,Prototype,4316.67,109.31
+2026-09-04,Prototype,4716.67,119.44
+2026-09-05,Live Google Flights,9453.8,255.49
