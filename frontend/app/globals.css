@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  /* Hide everything by default */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show the ticket */
+  body:has(.print-ticket) .print-ticket,
+  body:has(.print-ticket) .print-ticket * {
+    visibility: visible !important;
+  }
+
+  /* Put only the ticket at the top of the printed page */
+  body:has(.print-ticket) .print-ticket {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  /* Don't print the download button */
+  .print-ticket button {
+    display: none !important;
+  }
+}
