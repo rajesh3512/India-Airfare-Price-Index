@@ -309,19 +309,21 @@ class FlightAPIHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
 
+    port = int(os.environ.get("PORT", 5000))
+
     server = HTTPServer(
-        ("localhost", 5000),
+        ("0.0.0.0", port),
         FlightAPIHandler
     )
 
     print("=" * 50)
     print("LIVE FLIGHT API SERVER")
     print("=" * 50)
-    print("Server running at:")
-    print("http://localhost:5000")
+    print("Server running on port:")
+    print(port)
     print()
     print("Search endpoint:")
-    print("http://localhost:5000/search")
+    print("/search")
     print("=" * 50)
 
     server.serve_forever()
